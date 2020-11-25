@@ -16,20 +16,24 @@ class Carta
     attr_accessor :numero, :pinta
     
     def initialize(numero=1, pinta='C')
-        @numero = rand(1..13)
-        @pinta = ['C', 'D', 'E', 'T'].sample
-        
+        @numero = numero
+        @pinta = pinta
     end
-    def self.Muestra
-        pinta = 'Corazón' if @pinta == 'C'
-        pinta = 'Diamante' if @pinta == 'D'
-        pinta = 'Espada' if @pinta == 'E'
-        pinta = 'Trebol' if @pinta == 'T'
-
-        puts "El Número de carta al azar escogido es: #@numero y su pinta es:" + pinta
-        
+    
+    def get_muestra_numero_y_Pinta
+        arreglo=[]
+        5.times do
+            @numero = rand(1..13)
+            @pinta = ['C', 'D', 'E', 'T'].sample
+            pinta2 = "Corazón" if @pinta == 'C'
+            pinta2 = "Diamante" if @pinta == 'D'
+            pinta2 = "Espada" if @pinta == 'E'
+            pinta2 = "Trebol" if @pinta == 'T'
+            arreglo.push(@numero, pinta2)
+        end
+        print arreglo
     end
 end
-Carta.Muestra
-a = Carta.new()
 
+a = Carta.new()
+a.get_muestra_numero_y_Pinta
