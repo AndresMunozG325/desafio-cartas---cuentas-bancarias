@@ -20,7 +20,6 @@ class CuentaBancaria
         @nombre_usuario = nombre_usuario
         @numero_cuenta = numero_cuenta
         @vip = vip
-        print @vip
     end
     def numero_de_cuenta
         arreglo = @numero_cuenta.digits
@@ -41,7 +40,6 @@ class CuentaBancaria
         puts "Cantidad de Digitos : #{arreglo.length}\n\n"     
     end
 end
-
-datos = CuentaBancaria.new('Andrés', 12345678, 0)
+datos = CuentaBancaria.new('Andrés', 12345678, 1)
 puts datos.nombre_usuario
 puts datos.numero_de_cuenta
