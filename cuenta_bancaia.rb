@@ -16,11 +16,32 @@ require 'byebug'
 class CuentaBancaria
     attr_accessor :nombre_usuario
 
-    def initialize(nombre_usuario, numero_cuenta)
-        @nombre_usuario = nombre_de_usuario
+    def initialize(nombre_usuario, numero_cuenta, vip=0)
+        @nombre_usuario = nombre_usuario
         @numero_cuenta = numero_cuenta
+        @vip = vip
+        print @vip
+    end
+    def numero_de_cuenta
+        arreglo = @numero_cuenta.digits
+        print arreglo
+        puts " "
+        n = arreglo.count
+        if n != 8
+            puts "El numero de cuenta debe tener al menos 8 digitos"
+        else
+            if @vip == 1
+                print "#{@vip}-#{@numero_cuenta} es Vip"
+                puts " "
+            else
+                print "#{@vip}-#{@numero_cuenta} no es Vip"
+                puts " "
+            end
+        end
+        puts "Cantidad de Digitos : #{arreglo.length}\n\n"     
     end
 end
 
-datos = CuentaBancaria.new('Andrés', 12345678)
-datos.nombre_usuario
+datos = CuentaBancaria.new('Andrés', 12345678, 0)
+puts datos.nombre_usuario
+puts datos.numero_de_cuenta
